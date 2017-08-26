@@ -17,11 +17,6 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 8080, host: 8080
 
   config.vm.provision "shell", inline: <<-SHELL
-
-  # config.vm.boot_timeout = 600
-
-  config.vm.provider :virtualbox do |vb|
-  vb.gui = true
     # Update and upgrade the server packages.
     sudo apt-get update
     sudo apt-get -y upgrade
@@ -40,4 +35,5 @@ Vagrant.configure("2") do |config|
         echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/ubuntu/.bashrc
     fi
   SHELL
+
 end
